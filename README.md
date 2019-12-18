@@ -12,5 +12,5 @@ I've heavily commented the code about RoIAlign for better usage . Two different 
 Code for skew-bboxes NMS calculation.
 
 ## DCNv2
-Replaceable and faster implemention for conv.Directly apply to replace existed conv layer. 
+Replaceable and faster implemention for conv.Directly apply to replace existed conv layer.   
 **bug**: not support apex mix precision training or half, in debuging.
