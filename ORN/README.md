@@ -2,7 +2,6 @@
 Refer to excllent implemention [ORN-master](https://github.com/SDL-GuoZhao/ORN-master).
 And fix a bug which makes it not supported for pytorch latest than v1.0.0(BTW, it should have been fixed in earlier version, cause it may lead to false gradient calc.).
 
-![illustration](illustration.png)
 
 ### Getting started
 1. clone the this branch: 
