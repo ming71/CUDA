@@ -19,6 +19,7 @@ class ORConv2d(Conv2d):
         self.register_buffer("indices", self.get_indices())
 
         # re-create weight/bias
+        self.weight = nn.Parameter(self.weight.unsqueeze(2).repeat(1,1,self.nOrientation,1,1))
         if bias:
             self.bias = nn.Parameter(self.bias.repeat(self.nRotation))
         self.reset_parameters()
