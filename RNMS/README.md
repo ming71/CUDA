@@ -20,4 +20,4 @@ Run `nms_wrapper.py` to vis and return the test result.
 1. Import torch before `r_nms`, or you can  reinstall pytorch(really stupid method)
 2. Input with shape  (num_boxes, 6), however length of each box> 6 is also ok, but only running without bugs, validity is not sured.(In fact, deprecated.I don't konw where the question lies.) 
 3. thetas present in **radians**.
-4. thetas start from 0 (x+)
+4. thetas start from 0 (x+), and clockwise is positive.
