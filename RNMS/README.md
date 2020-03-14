@@ -2,12 +2,13 @@
 ### usage
 * **install**  
 ```python
-./build.sh
+bash build.sh
 ```
 * **call**  
-pred : (num_boxes, 5)
-5= x y w h conf
-(no need to asort before input)
+pred : (num_boxes, 6)  
+6 = x y w h t conf
+(no need to asort before input)  
+transform to torch.Tensor first, more details can be found in test file. 
 ```python
 import r_nms
 inds = r_nms.r_nms(pred, iou_thr)
@@ -17,5 +18,6 @@ Run `nms_wrapper.py` to vis and return the test result.
 
 ### attention
 1. Import torch before `r_nms`, or you can  reinstall pytorch(really stupid method)
-2. Input with shape  (num_boxes, 5), however length of each box>5 is also ok, but only running without bugs, validity is not sured.(In fact, deprecated.I don't konw where the question lies.) 
-3. angle is  in **radians**.
+2. Input with shape  (num_boxes, 6), however length of each box> 6 is also ok, but only running without bugs, validity is not sured.(In fact, deprecated.I don't konw where the question lies.) 
+3. thetas present in **radians**.
+4. thetas start from 0 (x+)
