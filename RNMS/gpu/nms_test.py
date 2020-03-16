@@ -3,7 +3,7 @@ import torch
 import cv2
 import math
 
-import r_nms
+from r_nms import r_nms
 
 
 def get_rotated_coors(box):
@@ -12,7 +12,7 @@ def get_rotated_coors(box):
     xmin = cx - w*0.5; xmax = cx + w*0.5; ymin = cy - h*0.5; ymax = cy + h*0.5
     t_x0=xmin; t_y0=ymin; t_x1=xmin; t_y1=ymax; t_x2=xmax; t_y2=ymax; t_x3=xmax; t_y3=ymin
     R = np.eye(3)
-    R[:2] = cv2.getRotationMatrix2D(angle=-a*180/math.pi, center=(cx,cy), scale=1)
+    R[:2] = cv2.getRotationMatrix2D(angle=a*180/math.pi, center=(cx,cy), scale=1)  # angle is anti-clkwise
     x0 = t_x0*R[0,0] + t_y0*R[0,1] + R[0,2] 
     y0 = t_x0*R[1,0] + t_y0*R[1,1] + R[1,2] 
     x1 = t_x1*R[0,0] + t_y1*R[0,1] + R[0,2] 
@@ -40,7 +40,7 @@ if __name__ == '__main__':
     dets_th=torch.from_numpy(boxes).cuda()
     import ipdb; ipdb.set_trace()
     iou_thr = 0.1
-    inds = r_nms.r_nms(dets_th, iou_thr)
+    inds = r_nms(dets_th, iou_thr)
     print(inds)
 
     img = np.zeros((416*2,416*2,3), np.uint8)

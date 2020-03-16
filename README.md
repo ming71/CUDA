@@ -10,6 +10,7 @@ I've heavily commented the code about RoIAlign for better usage . Two different 
 
 ## Rotated-NMS
 Code for skew-bboxes NMS calculation.
+GPU and CPU are all supported now. 
 
 ## DCNv2
 Replaceable and faster implemention for conv.Directly apply to replace existed conv layer.   
