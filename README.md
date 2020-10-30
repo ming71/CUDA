@@ -19,3 +19,7 @@ Replaceable and faster implemention for conv.Directly apply to replace existed c
 ## ORN
 Rotated conv layer.  
 Test demo also included for MNIST.(I've fixed a bug and made it supportable for pytorch with version higher than 1.0.0.)
+
+## point_justify
+
+Tested on pytorch 1.1+ with CUDA 9.0. The code is helpful to achieve ATSS with rotation bound boxes.
